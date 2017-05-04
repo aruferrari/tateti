@@ -15,5 +15,8 @@
   {
       
   }
+function setTurno(){
+    
+}
 
 
