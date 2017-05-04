@@ -1,22 +1,27 @@
-  function Juego()
-  {
-    var participante1;
-    var participante2;
-    var tablero;
-    var turno;
+class Juego {
+  constructor(participante1, participante2,tablero,turno) {
+    this.participante1;
+    this.participante2;
+    this.tablero;
+    this.turno;
   }
-
-  function dibujarTablero()
-  {
+    
+  dibujarTableroEnConsola() {
     
   }
 
-  function verificarGanador(participante1, panticipante2)
-  {
+  cargarTablero() {
+    
+  }
+
+  verificarSiHayGanador(participante1, panticipante2) {
       
-  }
-function setTurno(){
-    
-}
 
+  }  
+
+  }
+  setTurno(){
+    
+
+  }
 
