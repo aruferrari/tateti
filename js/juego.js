@@ -37,7 +37,6 @@ class Juego {
         }
         
     }
-<<<<<<< HEAD
     dibujarTableroEnConsola(){
         for(let i = 0; i < 3; i++){
             console.log(i + ":  [" + this.tablero[1+(3*i)] + "]" + " ["+this.tablero[2+(3*i)]+"]" + " [" + this.tablero[3+(3*i)] + "]");
@@ -82,6 +81,3 @@ class Juego {
              
      }
 }
-=======
-
->>>>>>> b4d0181a60904e7e95669806b3f0c45b59dac539
