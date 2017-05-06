@@ -92,6 +92,9 @@ class Juego {
         var limitY = [0, 100, 200, 300];        
         let posHor = [40, 140, 240];
         let posVer = [60, 160, 260];
+        if (this.tablero[this.numCasilla(coordX, coordY)] !== " "){
+            return false;//si la casilla esta ocupada salir
+        }
         for(let x=0; x<3; x++){
             for(let y=0; y<3; y++){
                 if(coordX > limitX[x] && coordX < limitX[x+1]){
@@ -100,6 +103,7 @@ class Juego {
                         var cxt = tablero.getContext("2d");
                         cxt.strokeText(this.turno? "X":"0", posHor[x], posVer[y]);
                         cxt.stroke();
+                        return true;
                     }
                 }
             }
