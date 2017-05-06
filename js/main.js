@@ -1,13 +1,13 @@
 console.log("Bienvenidos a Tateti");
-var jugador1 = prompt("Nombre Jugador 1", "Pepe");
-var jugador2 = prompt("Nombre Jugador 1", "Lalo");
+var jugador1 = "lola"
+var jugador2 = "lalo"
 
 var juego = new Juego(jugador1, jugador2, "jugando");
 
 do {
     var casilla =  prompt("Turno de " + juego.jugador[juego.turno]);
-    juego.tablero[casilla] = juego.turno
-    console.log(juego.tablero);
+    juego.tablero[casilla] = juego.turno;
+    juego.dibujarEnCanvas();
     if (juego.verificarSiHayGanador()){
         juego.estado = "finalizado";
     }else{
