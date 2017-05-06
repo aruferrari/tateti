@@ -1,20 +1,27 @@
-console.log("Bienvenidos a Tateti");
-var jugador1 = "lola"
-var jugador2 = "lalo"
+var jugador1 = "pedro-0";
+var jugador2 = "lalo-X";
+var mensaje = document.getElementById("mensaje");
+
 
 var juego = new Juego(jugador1, jugador2, "jugando");
 
-do {
-    var casilla =  prompt("Turno de " + juego.jugador[juego.turno]);
-    juego.tablero[casilla] = juego.turno;
-    juego.dibujarEnCanvas();
-    if (juego.verificarSiHayGanador()){
-        juego.estado = "finalizado";
-    }else{
-        juego.setTurno();
-    }
-    
-} while(juego.estado == "jugando");
+juego.dibujarLineas();
+mensaje.innerHTML = "Es el turno de: " + juego.jugador[juego.turno];
 
-console.log("El ganador es " + juego.jugador[juego.turno]);
+var canvas = document.getElementById("myCanvas");
+canvas.addEventListener('click', function(e) {
+        juego.marcarCasilla(e.offsetX, e.offsetY);
+    
+        juego.tablero[juego.numCasilla(e.offsetX, e.offsetY)] = juego.turno;
+    
+        if (juego.verificarSiHayGanador()) {
+            juego.estado = "finalizado";
+            mensaje.innerHTML = "GANADOR: " + juego.jugador[juego.turno];
+            canvas.addEventListener('click', null, false);
+        } else {
+            juego.setTurno();
+            mensaje.innerHTML = "Es el turno de: " + juego.jugador[juego.turno];
+        }
+}, false);
+
 

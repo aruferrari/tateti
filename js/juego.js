@@ -1,6 +1,6 @@
 class Juego {
   
-    constructor(nombre1, nombre2, estado){
+    constructor(nombre1, nombre2, estado) {
         this.tablero = { 1 : " ", 2 : " ", 3 : " ", 4 : " ", 5 : " ", 6 : " ", 7 : " ", 8 : " ", 9 : " " };
         this.jugador = [nombre1, nombre2];
         this.turno = 0;// turno guardaria el valor del jugador actual
@@ -17,7 +17,7 @@ class Juego {
         ];
     }
     
-    verificarSiHayGanador(){
+    verificarSiHayGanador() {
         for(let i of this.criterioDeGanador){
             let a = this.tablero[i[0]];
             let b = this.tablero[i[1]];
@@ -49,20 +49,7 @@ class Juego {
         let posHor = [40, 140, 260];
         let posVer = [60, 160, 260];
           
-          //Primera linea vertical de IZQ->DER
-         cxt.moveTo(100, 5);
-         cxt.lineTo(100, 295);
-         //Segunda linea vertical de IZQ->DER
-         cxt.moveTo(200, 5);
- 		cxt.lineTo(200, 295);
- 	   //Primera linea horizontal de ARRIBA->ABAJO
- 		cxt.moveTo(5, 100);
- 		cxt.lineTo(295, 100);
- 		//Segunda linea horizontal de ARRIBA->ABAJO
- 		cxt.moveTo(5, 200);
- 		cxt.lineTo(295, 200);
- 
- 		cxt.font = "30px Arial";
+
  
  		//DIBUJAR VALORES EN TABLA EN BASE AL VECTOR TABLERO
     for(let h=0; h<3; h++){
@@ -80,4 +67,49 @@ class Juego {
  		cxt.stroke();
              
      }
+    
+    dibujarLineas() {
+        var tablero = document.getElementById("myCanvas");
+        var cxt = tablero.getContext("2d");
+        //Primera linea vertical de IZQ->DER
+         cxt.moveTo(100, 5);
+         cxt.lineTo(100, 295);
+         //Segunda linea vertical de IZQ->DER
+         cxt.moveTo(200, 5);
+ 		cxt.lineTo(200, 295);
+ 	   //Primera linea horizontal de ARRIBA->ABAJO
+ 		cxt.moveTo(5, 100);
+ 		cxt.lineTo(295, 100);
+ 		//Segunda linea horizontal de ARRIBA->ABAJO
+ 		cxt.moveTo(5, 200);
+ 		cxt.lineTo(295, 200);
+ 
+ 		cxt.font = "30px Arial";
+        cxt.stroke();
+    }
+    marcarCasilla(coordX, coordY){
+        var limitX = [0, 100, 200, 300];
+        var limitY = [0, 100, 200, 300];        
+        let posHor = [40, 140, 240];
+        let posVer = [60, 160, 260];
+        for(let x=0; x<3; x++){
+            for(let y=0; y<3; y++){
+                if(coordX > limitX[x] && coordX < limitX[x+1]){
+                    if(coordY > limitY[y] && coordY < limitY[y+1]){
+                        var tablero = document.getElementById("myCanvas");
+                        var cxt = tablero.getContext("2d");
+                        cxt.strokeText(this.turno? "X":"0", posHor[x], posVer[y]);
+                        cxt.stroke();
+                    }
+                }
+            }
+        }
+    }
+    numCasilla(coordX, coordY){
+        let x = Math.floor(coordX/100); //esto me da un numero del 0 al 2
+        let y = Math.floor(coordY/100); //esto me da un numero del 0 al 2
+        let num = (x*3)+(y+1)
+        return num;
+
+    }
 }
