@@ -1,4 +1,5 @@
 class Juego {
+<<<<<<< HEAD
     
     constructor(nombre1, nombre2, estado){
         this.tablero = { 1 : " ", 2 : " ", 3 : " ", 4 : " ", 5 : " ", 6 : " ", 7 : " ", 8 : " ", 9 : " " };
@@ -27,3 +28,31 @@ class Juego {
         
     }
 }
+=======
+  constructor(participante1, participante2,tablero,turno) {
+    this.participante1;
+    this.participante2;
+    this.tablero;
+    this.turno;
+  }
+    
+  dibujarTableroEnConsola() {
+    
+  }
+
+  cargarTablero() {
+    
+  }
+
+  verificarSiHayGanador(participante1, panticipante2) {
+      
+
+  }  
+
+  }
+  setTurno(){
+    
+
+  }
+
+>>>>>>> d9a14dac6b6481be05597ed4820078439d4a919e
